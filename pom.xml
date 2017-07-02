@@ -1,0 +1,181 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.wangyn</groupId>
+  <artifactId>thrift-rpc</artifactId>
+  <version>1.1.0</version>
+  <packaging>pom</packaging>
+
+  <name>thrift-rpc</name>
+  <url>http://maven.apache.org</url>
+
+ <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.targetJdk>1.7</project.build.targetJdk>
+    
+    <dep.spring.version>4.1.6.RELEASE</dep.spring.version>
+	<dep.thrift.version>0.9.3</dep.thrift.version>
+	<dep.cglib.version>3.1</dep.cglib.version>
+	<dep.jackson-core-lgpl.version>1.9.13</dep.jackson-core-lgpl.version>
+	<dep.jackson-mapper-lgpl.version>1.9.13</dep.jackson-mapper-lgpl.version>
+	<dep.jackson-databind.version>2.6.0</dep.jackson-databind.version>
+	<dep.slf4j.version>1.7.5</dep.slf4j.version>
+	<dep.logback.version>1.0.13</dep.logback.version>
+	<dep.aspectj.version>1.7.4</dep.aspectj.version>
+	<dep.commons-pool.version>1.6</dep.commons-pool.version>
+	<dep.commons-lang.version>2.6</dep.commons-lang.version>
+	<dep.curator.version>2.10.0</dep.curator.version>
+	<dep.commonspool.version>1.6</dep.commonspool.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-expression</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${dep.spring.version}</version>
+	</dependency>
+	<!-- guice -->
+	<dependency>
+	    <groupId>com.google.inject</groupId>
+	    <artifactId>guice</artifactId>
+	    <version>3.0</version>
+	</dependency>
+	<!-- thrift -->
+	 <dependency>
+	  <groupId>org.apache.thrift</groupId>
+	  <artifactId>libthrift</artifactId>
+	  <version>${dep.thrift.version}</version>
+	</dependency>
+	<!-- cglib -->
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>${dep.cglib.version}</version>
+	</dependency>
+	<!-- jackson -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-lgpl</artifactId>
+		<version>${dep.jackson-core-lgpl.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-lgpl</artifactId>
+		<version>${dep.jackson-mapper-lgpl.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>${dep.jackson-databind.version}</version>
+	</dependency>
+	<!-- log -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>${dep.slf4j.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>log4j-over-slf4j</artifactId>
+		<version>${dep.slf4j.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+		<version>${dep.slf4j.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-core</artifactId>
+		<version>${dep.logback.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>${dep.logback.version}</version>
+	</dependency>
+	<!-- aspectj -->
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>${dep.aspectj.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${dep.aspectj.version}</version>
+	</dependency>
+	<!-- curator -->
+	<dependency>
+	    <groupId>org.apache.curator</groupId>
+	    <artifactId>curator-framework</artifactId>
+	    <version>${dep.curator.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.curator</groupId>
+	    <artifactId>curator-recipes</artifactId>
+	    <version>${dep.curator.version}</version>
+	</dependency>
+	<!-- commons pool -->
+	<dependency>
+	    <groupId>commons-pool</groupId>
+	    <artifactId>commons-pool</artifactId>
+	    <version>${dep.commonspool.version}</version>
+	</dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>  
+        <groupId>org.apache.maven.plugins</groupId>  
+        <artifactId>maven-compiler-plugin</artifactId>  
+        <configuration>  
+          <source>1.7</source>  
+          <target>1.7</target>  
+        </configuration>  
+      </plugin>
+    </plugins>
+    
+</build>
+  <modules>
+  	<module>framework-thrift</module>
+  </modules>
+</project>

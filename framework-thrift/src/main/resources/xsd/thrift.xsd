@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.wangyn.cn/schema/thrift" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  targetNamespace="http://www.wangyn.cn/schema/thrift" elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xsd:import namespace="http://www.springframework.org/schema/beans" />
+  
+   <!-- 暴露服务的标签 -->
+   <xsd:element name="service">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="beans:identifiedType">
+          <!-- 服务版本号 -->
+          <xsd:attribute name="version" type="xsd:string" use="required"  />
+          <!-- 服务实现类全类名 -->
+          <xsd:attribute name="class" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  
+  <!-- 注册中心 -->
+   <xsd:element name="registry">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="beans:identifiedType">
+          <!-- zk的地址 -->
+          <xsd:attribute name="address" type="xsd:string" use="required" />
+          <!-- 会话超时时间,毫秒 -->
+          <xsd:attribute name="timeout" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  
+  <!-- 指定当前应用名称 -->
+   <xsd:element name="application">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="beans:identifiedType">
+          <!-- 应用名称 -->
+          <xsd:attribute name="name" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  
+  
+  <!-- 指定客户端依赖的applicaiton -->
+   <xsd:element name="refapp">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="beans:identifiedType">
+          <!-- 应用名称 -->
+          <xsd:attribute name="name" type="xsd:string" use="required" />
+          <!-- 最大连接数 -->
+          <xsd:attribute name="maxconn" type="xsd:string" />
+          <!-- 连接超时时间 -->
+          <xsd:attribute name="timeout" type="xsd:string" />
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  
+  <!-- 指定客户端依赖的服务 -->
+   <xsd:element name="reference">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="beans:identifiedType">
+          <!-- 接口id ，不需要显声明此属性，spring自带的有
+          <xsd:attribute name="id" type="xsd:string" use="required" />-->
+          <!-- 接口全类名 -->
+          <xsd:attribute name="interface" type="xsd:string" use="required" />
+          <!-- 服务版本号 -->
+          <xsd:attribute name="version" type="xsd:string" use="required"  />
+          <!-- 服务所属应用名称 -->
+          <xsd:attribute name="application" type="xsd:string" use="required"  />
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
